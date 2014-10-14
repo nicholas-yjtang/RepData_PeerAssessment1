@@ -74,6 +74,12 @@ plot(intervalactivity, type="l",
      xlab="Interval period", ylab="Average steps")
 ```
 
+In order to find which interval contains the max daily activity, we will use the which.max function to describe which row has the maximum value  
+After finding which row, we simply return the interval for that particular row  
+
+```{r}
+intervalactivity[which.max(intervalactivity$average),"interval"]
+```
 
 ## Imputing missing values
 

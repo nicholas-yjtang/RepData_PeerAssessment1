@@ -89,6 +89,17 @@ plot(intervalactivity, type="l",
 
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
+In order to find which interval contains the max daily activity, we will use the which.max function to describe which row has the maximum value  
+After finding which row, we simply return the interval for that particular row  
+
+
+```r
+intervalactivity[which.max(intervalactivity$average),"interval"]
+```
+
+```
+## [1] 835
+```
 
 ## Imputing missing values
 
@@ -142,7 +153,7 @@ We will draw the histogram of the activities again
 hist(dailyactivity$totalsteps, xlab="Total steps", main="Histogram of total number of steps taken each day")
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 You will notice the data looks more like a normal distribution.  
 
@@ -202,6 +213,6 @@ ggplot(intervalactivity, aes(x=interval,y=average)) +
   facet_wrap(~ daytype, ncol=1)
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 You can observer that during the weekdays, there is a large spike of activity of activity in the mornings. Comparatively over the weekends, the activity is more constant throughout the day.
